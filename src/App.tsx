@@ -19,17 +19,14 @@ function App() {
 
   const [companyError, setCompanyError] = useState(false);
   const [questionError, setQuestionError] = useState(false);
+  const [submitted, setSubmitted] = useState(false)
 
   const handleButtonClick = async () => {
     const queryInput = textInputRef.current.value;
     console.log('Query:', queryInput);
 
-    if (!company ) {
-      setCompanyError(true);
-      return;
-    }
 
-    if(!queryInput){
+    if (!queryInput) {
       setQuestionError(true);
       return;
     }
@@ -37,12 +34,13 @@ function App() {
     setLoading(true);
 
     axios
-      .get(`https://recruiters-best-friend-backend.vercel.app/query/?prompt=${queryInput}&company=${company}`)
+      .get(`https://recruiters-best-friend-backend.vercel.app/query/?prompt=${queryInput}&company=Gitlab`)
       .then((response) => {
         // Handle the response
         console.log(response.data);
         setResponse(response.data.result);
         setLoading(false);
+        setSubmitted(true);
       })
       .catch((error) => {
         // Handle errors
@@ -121,20 +119,6 @@ function App() {
                       <div className="flex flex-col space-y-4">
 
                         <div className="flex flex-col items-start space-y-2">
-                          <Label htmlFor="input">Company</Label>
-                          <div className="flex items-center space-x-2">
-                            <Input
-                              type="text"
-                              placeholder="Enter Company Name"
-                              className="flex-1 lg:min-w-[580px] col-red-500'"
-                              value={company}
-                              onChange={handleCompanyChange}
-                            />
-                          </div>
-                          {companyError && <p className="text-red-500 text-sm">Company name is required</p>}
-                        </div>
-
-                        <div className="flex flex-col items-start space-y-2">
                           <Label htmlFor="input">Question</Label>
                           <div className="flex items-center space-x-2">
                             <Input
@@ -152,12 +136,13 @@ function App() {
 
                         </div>
                       </div>
-                      <Textarea
-                        className="flex w-2/2 rounded-md border border-input  bg-muted px-3 text-sm ring-offset-background placeholder:text-muted-foreground focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2 disabled:cursor-not-allowed disabled:opacity-50 min-h-[150px] py-2"
-                        id="input"
-                        value={response}
-                        readOnly={true}
-                      />{' '}
+                      {submitted &&
+                        <Textarea
+                          className="flex w-3/3 rounded-md border border-input  bg-muted px-3 text-sm ring-offset-background placeholder:text-muted-foreground focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2 disabled:cursor-not-allowed disabled:opacity-50 min-h-[150px] py-2"
+                          id="input"
+                          value={response}
+                          readOnly={true}
+                        />}
                     </div>
                   </div>
                 </TabsContent>
