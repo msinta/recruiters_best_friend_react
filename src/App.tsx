@@ -100,6 +100,19 @@ function App() {
                   <div className="flex flex-col space-y-4">
                     <div className="grid w-full gap-6 lg:grid-row-2">
                       <div className="flex flex-col space-y-4">
+                
+                        <div className="flex flex-col items-start space-y-2">
+                          <Label htmlFor="input">Company</Label>
+                          <div className="flex items-center space-x-2">
+                            <Input
+                              type="text"
+                              placeholder="Enter Company Name"
+                              className="flex-1 lg:min-w-[580px]"
+                              value={company}
+                              onChange={handleCompanyChange}
+                            />
+                          </div>
+                        </div>
                         <div className="flex flex-col items-start space-y-2">
                           <Label htmlFor="input">Question</Label>
                           <div className="flex items-center space-x-2">
@@ -112,20 +125,6 @@ function App() {
                             />
 
                             <Button onClick={handleButtonClick} > {loading ? 'Sending...' : 'Send'}</Button>
-                          </div>
-                        </div>
-												<div className="flex flex-col items-start space-y-2">
-                          <Label htmlFor="input">Company</Label>
-                          <div className="flex items-center space-x-2">
-                            <Input
-                              type="text"
-															placeholder="Enter Company Name"
-                              className="flex-1 lg:min-w-[580px]"
-															value={company}
-                              onChange={handleCompanyChange}
-                            />
-
-                            <Button onClick={uploadFile} > {loading ? 'Sending...' : 'Send'}</Button>
                           </div>
                         </div>
                       </div>
