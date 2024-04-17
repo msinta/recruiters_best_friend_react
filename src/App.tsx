@@ -8,6 +8,7 @@ import Nav from './components/ui/nav';
 import axios from 'axios';
 import { Button } from './components/ui/button';
 import { Label } from './components/ui/label';
+import List from './components/ui/list';
 
 function App() {
   const textInputRef = useRef(null);
@@ -154,6 +155,8 @@ function App() {
               </Tabs>
             </div>
             <p className="text-xs md:text-sm pt-3"> ✨ Simply ask us any questions about the process to get started!</p>
+
+            <List values={['Value 1', 'Value 2', 'Value 3']} />
           </div>
         </div>
       </main>
