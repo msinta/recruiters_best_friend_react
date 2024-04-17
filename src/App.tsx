@@ -17,9 +17,22 @@ function App() {
 
   const [file, setFile] = useState(null);
 
+  const [companyError, setCompanyError] = useState(false);
+  const [questionError, setQuestionError] = useState(false);
+
   const handleButtonClick = async () => {
     const queryInput = textInputRef.current.value;
     console.log('Query:', queryInput);
+
+    if (!company ) {
+      setCompanyError(true);
+      return;
+    }
+
+    if(!queryInput){
+      setQuestionError(true);
+      return;
+    }
 
     setLoading(true);
 
@@ -57,8 +70,14 @@ function App() {
   };
 
   const handleCompanyChange = (event) => {
+    setCompanyError(false)
     setCompany(event.target.value);
   };
+
+  const handleQuestionChange = (event) => {
+    setQuestionError(false)
+    setQuestion(event.target.value);
+  }
 
   const handleFileChange = async (event) => {
     setFile(event.target.files[0]);
@@ -100,19 +119,21 @@ function App() {
                   <div className="flex flex-col space-y-4">
                     <div className="grid w-full gap-6 lg:grid-row-2">
                       <div className="flex flex-col space-y-4">
-                
+
                         <div className="flex flex-col items-start space-y-2">
                           <Label htmlFor="input">Company</Label>
                           <div className="flex items-center space-x-2">
                             <Input
                               type="text"
                               placeholder="Enter Company Name"
-                              className="flex-1 lg:min-w-[580px]"
+                              className="flex-1 lg:min-w-[580px] col-red-500'"
                               value={company}
                               onChange={handleCompanyChange}
                             />
                           </div>
+                          {companyError && <p className="text-red-500 text-sm">Company name is required</p>}
                         </div>
+
                         <div className="flex flex-col items-start space-y-2">
                           <Label htmlFor="input">Question</Label>
                           <div className="flex items-center space-x-2">
@@ -122,10 +143,13 @@ function App() {
                               placeholder="Enter your question here"
                               className="flex-1 lg:min-w-[580px]"
                               ref={textInputRef}
+                              onChange={handleQuestionChange}
                             />
 
                             <Button onClick={handleButtonClick} > {loading ? 'Sending...' : 'Send'}</Button>
                           </div>
+                          {questionError && <p className="text-red-500 text-sm">Please enter a question</p>}
+
                         </div>
                       </div>
                       <Textarea
