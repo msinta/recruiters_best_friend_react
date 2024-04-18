@@ -83,16 +83,16 @@ function App() {
 
   return (
     <>
-      <div className="absolute top-0 left-0 right-0 h-8 bg-orange-500 mb-5"></div>
+      <div className="absolute top-0 left-0 right-0 h-8 bg-orange-500"></div>
 
-      <main className="relative flex flex-col items-center justify-between mt-16 ">
+      <main className="relative flex flex-col items-center justify-between mt-9 ">
         <div className="absolute  h-full w-full bg-[radial-gradient(#e5e7eb_1px,transparent_1px)] [background-size:16px_16px] [mask-image:radial-gradient(ellipse_50%_50%_at_50%_50%,#000_70%,transparent_100%)]"></div>
 
         <div className="z-10 px-5 text-center max-w-8xl w-full h-full items-center  text-sm flex flex-col gap-5">
           <div className="min-h-screen text-center max-w-8xl w-full items-center  text-sm flex flex-col gap-5">
             <Nav />
 
-            <div className="flex flex-col gap-1 sm:gap-4 pt-14 sm:pt-32 items-center justify-center">
+            <div className="flex flex-col gap-1 sm:gap-4 pt-14 sm:pt-32 items-center justify-center mt-9">
               <div>
                 <h1 className="text-3xl font-medium sm:text-6xl">Hi, I'm Gitlab's AI </h1>
                 <h1 className="text-3xl font-medium sm:text-6xl pb-1 animate-text-gradient bg-gradient-to-r from-zinc-900 via-zinc-500 to-zinc-500 bg-[150%_auto] bg-clip-text leading-tight text-transparent ">

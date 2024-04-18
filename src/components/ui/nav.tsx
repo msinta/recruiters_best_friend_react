@@ -10,7 +10,7 @@ export default function Nav() {
   const [, setIsHovered] = React.useState(false);
 
   return (
-    <div className="absolute top-1 sm:top-8 w-full flex justify-center">
+    <div className="absolute top-1 sm:top-8 w-full flex justify-center mt-0">
       <div
         className={cn(buttonVariants({ variant: 'ghost', size: 'icon' }), 'h-24 w-24 rounded-full relative')}
         onMouseEnter={() => setIsHovered(true)}
