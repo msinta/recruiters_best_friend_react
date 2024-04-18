@@ -105,18 +105,13 @@ function App() {
               </p>
             </div>
 
-            <div className="pt-4 md:max-w-3xl max-w-sm flex">
+            <div className="pt-2 md:max-w-3xl max-w-sm flex">
               <Tabs defaultValue="button" className="w-full">
-                <TabsList className="w-full">
-                  <TabsTrigger className="w-full" value="button">
-                    Chat with us!{' '}
-                  </TabsTrigger>
-                </TabsList>
                 <TabsContent value="button">
                   <div className="flex flex-col space-y-4">
                     <div className="grid w-full gap-6 lg:grid-row-2">
-                      <div className="flex flex-col space-y-4">
-                        <div className="flex flex-col items-start space-y-2">
+                      <div className="flex flex-col space-y-2">
+                        <div className="flex flex-col items-start space-y-1">
                           <Label htmlFor="input">Question</Label>
                           <div className="flex items-center space-x-2">
                             <Input
