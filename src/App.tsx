@@ -83,7 +83,9 @@ function App() {
 
   return (
     <>
-      <main className="relative flex flex-col items-center justify-between">
+      <div className="absolute top-0 left-0 right-0 h-8 bg-orange-500 mb-5"></div>
+
+      <main className="relative flex flex-col items-center justify-between mt-16 ">
         <div className="absolute  h-full w-full bg-[radial-gradient(#e5e7eb_1px,transparent_1px)] [background-size:16px_16px] [mask-image:radial-gradient(ellipse_50%_50%_at_50%_50%,#000_70%,transparent_100%)]"></div>
 
         <div className="z-10 px-5 text-center max-w-8xl w-full h-full items-center  text-sm flex flex-col gap-5">
@@ -92,14 +94,14 @@ function App() {
 
             <div className="flex flex-col gap-1 sm:gap-4 pt-14 sm:pt-32 items-center justify-center">
               <div>
-                <h1 className="text-3xl font-medium sm:text-6xl">Hi, I'm Your Recruiter's</h1>
-                <h1 className="text-3xl font-medium sm:text-6xl animate-text-gradient bg-gradient-to-r from-zinc-900 via-zinc-500 to-zinc-500 bg-[150%_auto] bg-clip-text leading-tight text-transparent ">
-                  Best Friend!
+                <h1 className="text-3xl font-medium sm:text-6xl">Hi, I'm Gitlab's AI </h1>
+                <h1 className="text-3xl font-medium sm:text-6xl pb-1 animate-text-gradient bg-gradient-to-r from-zinc-900 via-zinc-500 to-zinc-500 bg-[150%_auto] bg-clip-text leading-tight text-transparent ">
+                  Recruiting Coordinator Bot!
                 </h1>
               </div>
               <p className="text-base max-w-prose sm:text-lg pt-5">
-                I can help answer your questions about our hiring processes, job requirements, and more. You can ask me
-                anything related to recruiting or select an option below to get started!
+                I can help answer your questions about Gitlab's hiring processes, job requirements, and more. You can
+                ask me anything related to recruiting or select an option below to get started!
               </p>
             </div>
 
@@ -109,15 +111,11 @@ function App() {
                   <TabsTrigger className="w-full" value="button">
                     Chat with us!{' '}
                   </TabsTrigger>
-                  <TabsTrigger className="w-full" value="tailwind">
-                    Upload new data source
-                  </TabsTrigger>
                 </TabsList>
                 <TabsContent value="button">
                   <div className="flex flex-col space-y-4">
                     <div className="grid w-full gap-6 lg:grid-row-2">
                       <div className="flex flex-col space-y-4">
-
                         <div className="flex flex-col items-start space-y-2">
                           <Label htmlFor="input">Question</Label>
                           <div className="flex items-center space-x-2">
@@ -130,19 +128,19 @@ function App() {
                               onChange={handleQuestionChange}
                             />
 
-                            <Button onClick={handleButtonClick} > {loading ? 'Sending...' : 'Send'}</Button>
+                            <Button onClick={handleButtonClick}> {loading ? 'Sending...' : 'Send'}</Button>
                           </div>
                           {questionError && <p className="text-red-500 text-sm">Please enter a question</p>}
-
                         </div>
                       </div>
-                      {submitted &&
+                      {submitted && (
                         <Textarea
                           className="flex w-3/3 rounded-md border border-input  bg-muted px-3 text-sm ring-offset-background placeholder:text-muted-foreground focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2 disabled:cursor-not-allowed disabled:opacity-50 min-h-[150px] py-2"
                           id="input"
                           value={response}
                           readOnly={true}
-                        />}
+                        />
+                      )}
                     </div>
                   </div>
                 </TabsContent>
