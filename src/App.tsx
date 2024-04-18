@@ -96,12 +96,12 @@ function App() {
               <div>
                 <h1 className="text-3xl font-medium sm:text-6xl">Hi, I'm Gitlab's AI </h1>
                 <h1 className="text-3xl font-medium sm:text-6xl pb-1 animate-text-gradient bg-gradient-to-r from-zinc-900 via-zinc-500 to-zinc-500 bg-[150%_auto] bg-clip-text leading-tight text-transparent ">
-                  Recruiting Coordinator Bot!
+                  Interview Process Assistant!
                 </h1>
               </div>
               <p className="text-base max-w-prose sm:text-lg pt-5">
-                I can help answer your questions about Gitlab's hiring processes, job requirements, and more. You can
-                ask me anything related to recruiting or select an option below to get started!
+                I can help answer your questions about our hiring processes, working at Gitlab,
+                company culture, values, onboarding and more!
               </p>
             </div>
 
