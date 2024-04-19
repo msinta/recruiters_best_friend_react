@@ -34,7 +34,7 @@ function App() {
     setLoading(true);
 
     axios
-      .get(`https://recruiters-best-friend-backend.vercel.app/query/?prompt=${queryInput}&company=Gitlab`)
+      .get(`https://hire-chat-backend-500d6356f1a0.herokuapp.com/query/?prompt=${queryInput}&company=Gitlab`)
       .then((response) => {
         // Handle the response
         console.log(response.data);
@@ -54,7 +54,7 @@ function App() {
     formData.append('uploaded_file', file);
 
     axios
-      .post(`https://recruiters-best-friend-backend.vercel.app/upload/?company=${company}`, formData, {
+      .post(`https://hire-chat-backend-500d6356f1a0.herokuapp.com/upload/?company=${company}`, formData, {
         headers: {
           'Content-Type': 'multipart/form-data',
         },
@@ -74,7 +74,6 @@ function App() {
 
   const handleQuestionChange = (event) => {
     setQuestionError(false)
-    setQuestion(event.target.value);
   }
 
   const handleFileChange = async (event) => {
