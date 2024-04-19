@@ -1,4 +1,4 @@
-import { useRef, useState } from 'react';
+import { useEffect, useRef, useState } from 'react';
 
 import './App.css';
 import { Tabs, TabsContent, TabsList, TabsTrigger } from './components/ui/tabs';
@@ -79,6 +79,20 @@ function App() {
   const handleFileChange = async (event) => {
     setFile(event.target.files[0]);
   };
+
+  const handleKeyDown = async (event) => {
+    if (event.keyCode === 13) { // Check if the Enter key is pressed
+      handleButtonClick(); // Call the handleButtonClick function
+    }
+  };
+
+  useEffect(() => {
+    document.body.addEventListener('keydown', handleKeyDown); // Add event listener when component mounts
+    return () => {
+      document.body.removeEventListener('keydown', handleKeyDown); // Remove event listener when component unmounts
+    };
+  }, []); // Empty dependency array ensures effect is only run once
+
 
   return (
     <>
